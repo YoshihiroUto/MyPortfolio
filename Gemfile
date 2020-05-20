@@ -56,3 +56,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # ページネーション用
 gem 'kaminari'
+
+# jQueryを使用する用
+gem 'jquery-rails'
+
+
+# font-asesome用
+gem 'font-awesome-rails'
