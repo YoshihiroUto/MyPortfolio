@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 /*------- custom css -------*/
 html {
   height: 100%;
@@ -276,12 +278,14 @@ img {
   background-color: #111111 !important;
 }
 
+/* change:コンタクトの背景色 */
 .bg-primary {
-  background-color: #34a9f4 !important;
+  background-color: #99ab4e !important;
 }
 
+/* change:フッターの背景色 */
 .bg-primary-hover {
-  background-color: #187bba !important;
+  background-color: #99ab4e !important;
 }
 
 .bg-secondary {
@@ -3721,8 +3725,9 @@ nav .btn-xs {
   padding: 25px 0;
 }
 
+/* change:ContactとBlogのトップラベルの要素幅 */
 .cta-big {
-  padding: 50px 0;
+  padding: 20px 0;
 }
 
 /*------- end of call-to-action -------*/
@@ -4010,6 +4015,7 @@ section {
   padding-left: 300px;
 }
 
+/* change:サイドバーのbackground-color追加 */
 #sidebar-wrapper {
   z-index: 999;
   position: fixed;
@@ -4019,6 +4025,7 @@ section {
   margin-left: -300px;
   overflow-y: auto;
   background: #f2f3f4;
+  background-color: #f5dce2;
   border-right: 1px solid #f2f3f4;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
@@ -4030,9 +4037,11 @@ section {
   width: 300px;
 }
 
+/* change:サイドバー以外の背景色指定 */
 #page-content-wrapper {
   width: 100%;
   position: absolute;
+  background-color: #fff8e6;
 }
 
 #wrapper.toggled #page-content-wrapper {
@@ -4062,13 +4071,14 @@ section {
   text-align: left;
 }
 
+/* change:サイドバー：選択中のラインの色 */
 .sidebar-nav li.active a, .sidebar-nav li a.active {
   color: #333333;
-  border-left: 2px solid #34a9f4;
+  border-left: 2px solid #e65c8a;
 }
-
+/* change:サイドバー：選択中の文字の色 */
 .sidebar-nav li.active a:hover {
-  color: #34a9f4;
+  /*color: #e65c8a;*/
 }
 
 .sidebar-nav a.menu-item {
@@ -4081,10 +4091,10 @@ section {
   padding: 12px;
   border-left: 2px solid #c1c1c1;
 }
-
+/* サイドバー：マウスホバー時のラインの色*/
 .sidebar-nav a.menu-item:hover {
   color: #333333;
-  border-left: 2px solid #34a9f4;
+  border-left: 2px solid #e65c8a;
 }
 
 .sidebar-nav a:hover {
@@ -4193,9 +4203,11 @@ header.home-header {
   background-image: url("../images/header-home.jpg");
 }
 
+/* change:トップ画像のスタイル */
 header.home-header-freelancer {
   padding: 200px 0;
-  background-image: url("../images/header-home-freelancer.jpg");
+  /*background-image: url("../images/header-home-freelancer.jpg");*/
+  background-color: #99ab4e;
 }
 
 header.home-header-photographer {

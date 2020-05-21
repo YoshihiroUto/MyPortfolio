@@ -1,4 +1,3 @@
-
 <div id="preloader">
   <div class="preloader">
     <span></span>
@@ -14,162 +13,151 @@
   <!-- side navigation -->
   <a href="#menu-toggle" id="menu-toggle"><i class="fa fa-bars"></i></a>
   <div id="sidebar-wrapper" class="sidebar-nav">
-  <ul class="sidebar-nav-inner">
-    <li class="sidebar-brand">
-    <a href="#"><img src="images/logo.png" alt=""></a>
-    </li>
-    <li class="active">
-    <a class="menu-item" href="index.html">HOME</a>
-    </li>
-    <li>
-    <a class="menu-item" href="about.html">ABOUT</a>
-    </li>
-    <li>
-    <a class="menu-item" href="services.html">SERVICES</a>
-    </li>
-    <li>
-    <a class="menu-item" href="portfolio.html">PORTFOLIO</a>
-    </li>
-    <li>
-    <a class="menu-item" href="blog.html">BLOG</a>
-    </li>
-    <li>
-    <a class="menu-item" href="contact.html">CONTACT</a>
-    </li>
-    <li class="sidebar-social">
-    <a href="#" class="ml-0"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-google-plus-g"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-dribbble"></i></a>
-    </li><!-- sidebar-social -->
-  </ul>
+    <ul class="sidebar-nav-inner">
+      <li class="sidebar-brand">
+        <a href="#"><img id="sidebar-home-image" src="images/logo.png" alt=""></a>
+      </li>
+      <li class="active">
+        <a @click="changeActive" id="sidebar-home" class="menu-item" href="index.html">Home</a>
+      </li>
+      <li>
+        <a @click="changeActive" id="sidebar-about-me" class="menu-item" href="about.html">About Me</a>
+      </li>
+      <li>
+        <a @click="changeActive" id="sidebar-portfolio" class="menu-item" href="portfolio.html">Portfolio</a>
+      </li>
+      <li>
+        <a @click="changeActive" id="sidebar-blog" class="menu-item" href="blog.html">Blog</a>
+      </li>
+      <li>
+        <a @click="changeActive" id="sidebar-contact" class="menu-item" href="contact.html">Contact</a>
+      </li>
+    </ul>
   </div>
   <!-- / side navigation -->
-    <!-- content -->
+  <!-- content -->
   <div id="page-content-wrapper">
-  <header class="home-header-freelancer parallax dark">
-    <div class="container w60 text-center">
-    <div class="header-content content-first has-raised-content">
-      <h1>宇都 嘉浩 のポートフォリオサイト</h1>
-      <p class="bold-font">鹿児島大学院工学部 理工学研究科 工学専攻ム</p>
-      <p class="hide-mobile header-text">簡単な自己紹介文など~~~~~~~~~~~~~~~~~~~~</p>
-      <a href="#portfolio" class="btn btn-outline-white smooth-scroll pill m-1">MY PORTFOLIO</a>
-    </div><!-- / header-content -->
-    </div><!-- / container -->
-  </header>
+    <header id="home" class="home-header-freelancer parallax dark">
+      <div class="container w60 text-center">
+      <div class="header-content content-first has-raised-content">
+        <h1>ウト ヨシヒロのポートフォリオ</h1>
+        <p class="bold-font">イラスト系Webサービス開発のために勉強中</p>
+        <p class="hide-mobile header-text">勉強の過程で作成した作品を紹介するサイトです．</p>
+        <a href="#portfolio" class="btn btn-outline-white smooth-scroll pill m-1">My Portfolio</a>
+      </div><!-- / header-content -->
+      </div><!-- / container -->
+    </header>
+    
     <section id="about">
-    <div class="container">
-      <div class="row vcenter">
-        <div class="col-md-6 mb-3">
-          <h4 class="section-title mb-0">ABOUT ME</h4>
-          <div class="spacer spacer-line border-primary ml-0">&nbsp;</div>
-            <p class="mb-2">今までやってきた言語など~~~~~~~~~~~~~</p>
-            <p>好きなことなど~~~~~~~~~~~~~~~~~~~~</p>
-        </div><!-- / column -->
-        
-        <div class="col-md-6">
-          <p class="text-muted text-sm"><b>GRAPHIC DESIGN (95%)</b></p>
-          <div class="progress">
-            <div class="progress-bar bg-primary animated fadeInLeft first" role="progressbar" style="width: 95%; height: 6px" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-          </div><!-- / progress -->
-            <p class="text-muted text-sm"><b>WEB DESIGN (90%)</b></p>
-          <div class="progress">
-            <div class="progress-bar bg-success animated fadeInLeft second" role="progressbar" style="width: 90%; height: 6px" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-          </div><!-- / progress -->
-            <p class="text-muted text-sm"><b>HTML / CSS (100%)</b></p>
-          <div class="progress">
-            <div class="progress-bar bg-warning animated fadeInLeft third" role="progressbar" style="width: 100%; height: 6px" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-          </div><!-- / progress -->
-            <p class="text-muted text-sm"><b>ADVERTISING (75%)</b></p>
-          <div class="progress">
-            <div class="progress-bar bg-danger animated fadeInLeft fourth" role="progressbar" style="width: 75%; height: 6px" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-          </div><!-- / progress -->
-        </div><!-- / column -->
-          
-      </div><!-- / row -->
-    </div><!-- / container -->
-  </section>
-
-  <section id="portfolio" class="p-3">
-    <div class="container">
-      <!-- portfolio filter -->
-      <ul class="portfolio-filter list-inline text-center">
-        <li><a href="#" data-group="all" class="active ml-2">ALL</a></li>
-        <li><a href="#" data-group="architecture">ARCHITECTURE</a></li>
-        <li><a href="#" data-group="design">DESIGN</a></li>
-        <li><a href="#" data-group="marketing">MARKETING</a></li>
-      </ul>
-      <!-- / portfolio filter -->
-    </div><!-- / container -->
-    <div class="container">
-      <ul class="row portfolio list-unstyled mb-0" id="grid">
-        <!-- project -->
-        <li class="col-lg-4 project tall-project" data-groups='["marketing"]'>
-          <figure class="portfolio-item">
-            <div class="hovereffect">
-              <img class="img-responsive" src="images/project-tall1.jpg" alt="">
-              <div class="overlay">
-                <div class="hovereffect-title">
-                  <a href="single-project.html">
-                    <h5 class="project-title">PINK BALLOON</h5>
-                    <p class="project-skill">MARKETING</p>
-                  </a><!-- / project link -->
-                </div><!-- / hovereffect-title -->
-              </div><!-- / overlay -->
-            </div><!-- / hovereffect -->
-          </figure><!-- / portfolio-item -->
-        </li><!-- / project -->
-          <!-- project -->
-        <li class="col-lg-4 project" data-groups='["design", "architecture"]'>
-          <figure class="portfolio-item">
-            <div class="hovereffect">
-              <img class="img-responsive" src="images/project2.jpg" alt="">
-              <div class="overlay">
-                <div class="hovereffect-title">
-                  <a href="single-project.html">
-                    <h5 class="project-title">BUILDING</h5>
-                    <p class="project-skill">ARCHITECTURE, DESIGN</p>
-                  </a><!-- / project link -->
-                </div><!-- / hovereffect-title -->
-              </div><!-- / overlay -->
-            </div><!-- / hovereffect -->
-          </figure><!-- / portfolio-item -->
-        </li><!-- / project -->
-          <!-- project -->
-        <li class="col-lg-4 project" data-groups='["architecture"]'>
-          <figure class="portfolio-item">
-            <div class="hovereffect">
-              <img class="img-responsive" src="images/project3.jpg" alt="">
-              <div class="overlay">
-                <div class="hovereffect-title">
-                  <a href="single-project.html">
-                    <h5 class="project-title">SKY SCRAPER</h5>
-                    <p class="project-skill">ARCHITECTURE</p>
-                  </a><!-- / project link -->
-                </div><!-- / hovereffect-title -->
-              </div><!-- / overlay -->
-            </div><!-- / hovereffect -->
-          </figure><!-- / portfolio-item -->
-        </li><!-- / project -->
-        
-      </ul> <!-- / portfolio -->
-    </div><!-- / container -->
-  </section>
-  <!-- / portfolio -->
-  
-  <!-- contact -->
-  <section id="contact" class="pt-0">
-    <div class="cta cta-big bg-primary dark space-bottom-2x">
       <div class="container">
-        <div class="text-center">
-          <h3 class="mb-2">コンタクト</h3>
+        <div class="row vcenter">
+          <div class="col-md-6 mb-3">
+            <h4 class="section-title mb-0">About Me</h4>
+            <div class="spacer spacer-line border-primary ml-0">&nbsp;</div>
+              <p class="mb-2">今までやってきた言語など~~~~~~~~~~~~~</p>
+              <p>好きなことなど~~~~~~~~~~~~~~~~~~~~</p>
+          </div><!-- / column -->
+          
+          <div class="col-md-6">
+            <p>コンテンツ</p>
+          </div><!-- / column -->
+            
         </div><!-- / row -->
       </div><!-- / container -->
-    </div><!-- / cta -->
-  </section>
-  <!-- / contact -->
+    </section>
   
+    <section id="portfolio" class="p-3">
+      <div class="container">
+        <!-- portfolio filter -->
+        <ul class="portfolio-filter list-inline text-center">
+          <li><a href="#" data-group="all" class="active ml-2">ALL</a></li>
+          <li><a href="#" data-group="architecture">ARCHITECTURE</a></li>
+          <li><a href="#" data-group="design">DESIGN</a></li>
+          <li><a href="#" data-group="marketing">MARKETING</a></li>
+        </ul>
+        <!-- / portfolio filter -->
+      </div><!-- / container -->
+      <div class="container">
+        <ul class="row portfolio list-unstyled mb-0" id="grid">
+          <!-- project -->
+          <li class="col-lg-4 project tall-project" data-groups='["marketing"]'>
+            <figure class="portfolio-item">
+              <div class="hovereffect">
+                <img class="img-responsive" src="images/project-tall1.jpg" alt="">
+                <div class="overlay">
+                  <div class="hovereffect-title">
+                    <a href="single-project.html">
+                      <h5 class="project-title">PINK BALLOON</h5>
+                      <p class="project-skill">MARKETING</p>
+                    </a><!-- / project link -->
+                  </div><!-- / hovereffect-title -->
+                </div><!-- / overlay -->
+              </div><!-- / hovereffect -->
+            </figure><!-- / portfolio-item -->
+          </li><!-- / project -->
+            <!-- project -->
+          <li class="col-lg-4 project" data-groups='["design", "architecture"]'>
+            <figure class="portfolio-item">
+              <div class="hovereffect">
+                <img class="img-responsive" src="images/project2.jpg" alt="">
+                <div class="overlay">
+                  <div class="hovereffect-title">
+                    <a href="single-project.html">
+                      <h5 class="project-title">BUILDING</h5>
+                      <p class="project-skill">ARCHITECTURE, DESIGN</p>
+                    </a><!-- / project link -->
+                  </div><!-- / hovereffect-title -->
+                </div><!-- / overlay -->
+              </div><!-- / hovereffect -->
+            </figure><!-- / portfolio-item -->
+          </li><!-- / project -->
+            <!-- project -->
+          <li class="col-lg-4 project" data-groups='["architecture"]'>
+            <figure class="portfolio-item">
+              <div class="hovereffect">
+                <img class="img-responsive" src="images/project3.jpg" alt="">
+                <div class="overlay">
+                  <div class="hovereffect-title">
+                    <a href="single-project.html">
+                      <h5 class="project-title">SKY SCRAPER</h5>
+                      <p class="project-skill">ARCHITECTURE</p>
+                    </a><!-- / project link -->
+                  </div><!-- / hovereffect-title -->
+                </div><!-- / overlay -->
+              </div><!-- / hovereffect -->
+            </figure><!-- / portfolio-item -->
+          </li><!-- / project -->
+          
+        </ul> <!-- / portfolio -->
+      </div><!-- / container -->
+    </section>
+    <!-- / portfolio -->
+  
+    <!-- blog -->
+    <section id="blog" class="pt-0">
+      <div class="cta cta-big bg-primary dark space-bottom-2x">
+        <div class="container">
+          <div class="text-center">
+            <h4 class="mb-2">Blog</h4>
+          </div><!-- / row -->
+        </div><!-- / container -->
+      </div><!-- / cta -->
+      <img class="img-responsive" src="images/project-tall1.jpg" alt="">
+    </section>
+    <!-- / blog -->
+    
+    <!-- contact -->
+    <section id="contact" class="pt-0">
+      <div class="cta cta-big bg-primary dark space-bottom-2x">
+        <div class="container">
+          <div class="text-center">
+            <h4 class="mb-2">Contact</h4>
+          </div><!-- / row -->
+        </div><!-- / container -->
+      </div><!-- / cta -->
+      <img class="img-responsive" src="images/project-tall1.jpg" alt="">
+    </section>
+    <!-- / contact -->
   
   <a href="#top" class="scroll-to-top is-hidden smooth-scroll" data-nav-status="toggle"><i class="md-icon dp18">expand_less</i></a>
   
@@ -181,3 +169,4 @@
   </footer>
   
 </div><!-- / wrapper -->
+
