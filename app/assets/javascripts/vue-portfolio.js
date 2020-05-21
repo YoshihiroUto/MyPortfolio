@@ -33,6 +33,32 @@ $(function(){
     $("#sidebar-home").parent("li").addClass("active");
   });
   
+  $(`.portfolio-item a`).on('click', (event) => {
+    event.preventDefault();
+    console.log(event.target);
+    console.log(event.target.id);
+    
+    
+    if(event.target.id === "portfolio_1" && !($('#portfolio_content_1')).is(':visible') )
+    {
+      $('#portfolio_content_1').slideDown();
+    }
+    else $('#portfolio_content_1').slideUp();
+    
+
+    if(event.target.id === "portfolio_2" && !($('#portfolio_content_2')).is(':visible') )
+    {
+      $('#portfolio_content_2').slideDown();
+    }
+    else $('#portfolio_content_2').slideUp();
+
+    if(event.target.id === "portfolio_3" && !($('#portfolio_content_3')).is(':visible') )
+    {
+      $('#portfolio_content_3').slideDown();
+    }
+    else $('#portfolio_content_3').slideUp();
+
+  });
 
 });
 
