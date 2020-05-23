@@ -67,6 +67,9 @@
     </section>
   
     <section id="portfolio" class="p-3">
+      
+      <h4 class="section-title mb-0 text-center">Portfolio</h4>
+      
       <div class="container">
         <!-- portfolio filter -->
         <ul class="portfolio-filter list-inline text-center">
@@ -83,17 +86,19 @@
           <li class="col-lg-4 project tall-project" data-groups='["marketing"]'>
             <figure class="portfolio-item">
               <div class="hovereffect">
-                <img class="img-responsive" src="images/project-tall1.jpg" alt="">
+                <img class="img-responsive" src="images/izaillust.png" alt="">
                 <div class="overlay">
                   <div class="hovereffect-title">
                     <a href="single-project.html">
-                      <h5 id="portfolio_1" class="project-title">PINK BALLOON</h5>
+                      <h5 @click="showPortforlio" id="portfolio_1" class="project-title">IZA! ILLUST</h5>
                     </a><!-- / project link -->
                   </div><!-- / hovereffect-title -->
                 </div><!-- / overlay -->
               </div><!-- / hovereffect -->
             </figure><!-- / portfolio-item -->
           </li><!-- / project -->
+          
+          
             <!-- project -->
           <li class="col-lg-4 project" data-groups='["design", "architecture"]'>
             <figure class="portfolio-item">
@@ -102,7 +107,7 @@
                 <div class="overlay">
                   <div class="hovereffect-title">
                     <a href="single-project.html">
-                      <h5 id="portfolio_2" class="project-title">BUILDING</h5>
+                      <h5 @click="showPortforlio" id="portfolio_2" class="project-title">BUILDING</h5>
                     </a><!-- / project link -->
                   </div><!-- / hovereffect-title -->
                 </div><!-- / overlay -->
@@ -117,7 +122,7 @@
                 <div class="overlay">
                   <div class="hovereffect-title">
                     <a href="single-project.html">
-                      <h5 id="portfolio_3" class="project-title">SKY SCRAPER</h5>
+                      <h5 @click="showPortforlio" id="portfolio_3" class="project-title">SKY SCRAPER</h5>
                     </a><!-- / project link -->
                   </div><!-- / hovereffect-title -->
                 </div><!-- / overlay -->
@@ -128,19 +133,79 @@
         </ul> <!-- / portfolio -->
       </div><!-- / container -->
       
+      
       <div class="portfolio_contents">
-        <div class="container">
-          <div class=" row">
+        <div class="container p-0">
+          <div class="row">
 
-            <div id="portfolio_content_1" class="portfolio_content col-lg-12">
-              テスト1
+            <div id="portfolio_1_content" class="portfolio_content col-lg-12">
+              <div class="row">
+                <!--目印目印目印目印目印目印目印目印目印目印目印目印目印目印目印目印目印目印目印目印目印目印目印目印目印目印目印目印-->
+                <div class="col-lg-6 p-0">
+
+                  <section id="portfolio" class="px-4 py-2">
+                    <div class="container">
+                      <ul class="row portfolio lightbox list-unstyled mb-0" id="grid">
+                        
+                        <!-- project -->
+                        <li class="col-lg-6 project">
+                          <figure class="portfolio-item">
+                            <a class="popup" href="images/izaillust.png">
+                              <img class="img-responsive" src="images/izaillust_small.png" alt="">
+                            </a>
+                          </figure><!-- / portfolio-item -->
+                        </li><!-- / project -->
+
+                        <!-- project -->
+                        <li class="col-lg-6 project">
+                          <figure class="portfolio-item">
+                            <a class="popup" href="images/izaillust_profile_page.png">
+                              <img class="img-responsive" src="images/izaillust_profile_page_small.png" alt="">
+                            </a>
+                          </figure><!-- / portfolio-item -->
+                        </li><!-- / project -->
+                        
+                        <!-- project -->
+                        <li class="col-lg-6 project">
+                          <figure class="portfolio-item">
+                            <a class="popup" href="images/izaillust_ev_page.png">
+                              <img class="img-responsive" src="images/izaillust_ev_page_small.png" alt="">
+                            </a>
+                          </figure><!-- / portfolio-item -->
+                        </li><!-- / project -->
+
+                        <!-- project -->
+                        <li class="col-lg-6 project">
+                          <figure class="portfolio-item">
+                            <a class="popup" href="images/izaillust_ev_result_page.png">
+                              <img class="img-responsive" src="images/izaillust_ev_result_page_small.png" alt="">
+                            </a>
+                          </figure><!-- / portfolio-item -->
+                        </li><!-- / project -->
+
+                          </ul> <!-- / portfolio -->
+                      </div><!-- / container -->
+                  </section>
+                  <!-- / portfolio -->
+
+                </div>
+                <!--目印目印目印目印目印目印目印目印目印目印目印目印目印目印目印目印目印目印目印目印目印目印目印目印目印目印目印目印-->
+                <div class="col-lg-6">
+                  <h3 class="text-center py-5">IZA! ILLUST</h3>
+                  <h5>イラスト評価サイト</h5>
+                  <p>
+                    説明文~~~~~~~~~~~~~~~~~~
+                  </p>
+                </div>
+              </div>
+              
             </div>
 
-            <div id="portfolio_content_2" class="portfolio_content col-lg-12">
+            <div id="portfolio_2_content" class="portfolio_content col-lg-12">
               テスト2
             </div>
 
-            <div id="portfolio_content_3" class="portfolio_content col-lg-12">
+            <div id="portfolio_3_content" class="portfolio_content col-lg-12">
               テスト3
             </div>
 
@@ -160,7 +225,7 @@
           </div><!-- / row -->
         </div><!-- / container -->
       </div><!-- / cta -->
-      <img class="img-responsive" src="images/project-tall1.jpg" alt="">
+      <h4 class="text-center">Contact：現在開発中...</h4>
     </section>
     <!-- / blog -->
     
@@ -173,7 +238,7 @@
           </div><!-- / row -->
         </div><!-- / container -->
       </div><!-- / cta -->
-      <img class="img-responsive" src="images/project-tall1.jpg" alt="">
+      <h4 class="text-center">Contact：現在開発中...</h4>
     </section>
     <!-- / contact -->
   

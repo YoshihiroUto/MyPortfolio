@@ -33,36 +33,140 @@ $(function(){
     $("#sidebar-home").parent("li").addClass("active");
   });
   
-  $(`.portfolio-item a`).on('click', (event) => {
-    event.preventDefault();
-    console.log(event.target);
-    console.log(event.target.id);
+  // porfolio.js ← テンプレート作成者が，Shuffle.jsの挙動などを書いていたが，
+  // 上記ファイルが別であると，以下のVue el: '#portfolio'がうまく動かない．(jQuery適用範囲が上書きされてしまうため．)
+  // そのため，以下にporfolio.js内の記述をすべて持ってくることにした．
+  $(function(){
+    var shuffleme = (function( $ ) {
+      'use strict';
+      var $grid = $('#grid'), //locate what we want to sort 
+        $filterOptions = $('.portfolio-filter li'),  //locate the filter categories
+        $sizer = $grid.find('.shuffle_sizer'),    //sizer stores the size of the items
     
+        init = function() {
     
-    if(event.target.id === "portfolio_1" && !($('#portfolio_content_1')).is(':visible') )
-    {
-      $('#portfolio_content_1').slideDown();
-    }
-    else $('#portfolio_content_1').slideUp();
+          // None of these need to be executed synchronously
+          setTimeout(function() {
+            listen();
+            setupFilters();
+          }, 100);
+      
+          // instantiate the plugin
+          $grid.shuffle({
+            itemSelector: '[class*="col-"]',
+            sizer: $sizer    
+          });
+        },
     
-
-    if(event.target.id === "portfolio_2" && !($('#portfolio_content_2')).is(':visible') )
+          
+    
+        // Set up button clicks
+        setupFilters = function() {
+          var $btns = $filterOptions.children();
+          $btns.on('click', function(e) {
+            e.preventDefault();
+            var $this = $(this),
+              isActive = $this.hasClass( 'active' ),
+              group = isActive ? 'all' : $this.data('group');
+    
+            // Hide current label, show current label in title
+            if ( !isActive ) {
+              $('.portfolio-filter li a').removeClass('active');
+            }
+    
+            $this.toggleClass('active');
+    
+            // Filter elements
+            $grid.shuffle( 'shuffle', group );
+          });
+    
+          $btns = null;
+        },
+    
+        // Re layout shuffle when images load. This is only needed
+        // below 768 pixels because the .picture-item height is auto and therefore
+        // the height of the picture-item is dependent on the image
+        // I recommend using imagesloaded to determine when an image is loaded
+        // but that doesn't support IE7
+        listen = function() {
+          var debouncedLayout = $.throttle( 300, function() {
+            $grid.shuffle('update');
+          });
+      
+          // Get all images inside shuffle
+          $grid.find('img').each(function() {
+            var proxyImage;
+      
+            // Image already loaded
+            if ( this.complete && this.naturalWidth !== undefined ) {
+              return;
+            }
+      
+            // If none of the checks above matched, simulate loading on detached element.
+            proxyImage = new Image();
+            $( proxyImage ).on('load', function() {
+              $(this).off('load');
+              debouncedLayout();
+            });
+      
+            proxyImage.src = this.src;
+          });
+      
+          // Because this method doesn't seem to be perfect.
+          setTimeout(function() {
+            debouncedLayout();
+          }, 500);
+        };      
+    
+      return {
+        init: init
+      };
+    }( jQuery ));
+    
+    $(document).ready(function()
     {
-      $('#portfolio_content_2').slideDown();
-    }
-    else $('#portfolio_content_2').slideUp();
-
-    if(event.target.id === "portfolio_3" && !($('#portfolio_content_3')).is(':visible') )
-    {
-      $('#portfolio_content_3').slideDown();
-    }
-    else $('#portfolio_content_3').slideUp();
-
+      shuffleme.init(); //filter portfolio
+    });
+  
   });
-
+  
+  // ポートフォリオの詳細を表示する画面を表示
+  new Vue({
+    el: '#portfolio',
+    methods: {
+      showPortforlio:function(event){
+        event.preventDefault();
+        
+        const w = $(window).width();
+        
+        if(!($(`#${event.target.id}_content`)).is(':visible')) {
+          $(`.portfolio_contents div.portfolio_content`).slideUp();
+          $(`#${event.target.id}_content`).slideDown();
+          console.log(this.w);
+          // 幅が狭い時用のレイアウトが適用されたときの記述
+          if(w <= 750)
+          {
+            console.log("a");
+            $("html,body").animate({scrollTop:$(".portfolio_contents").offset().top - 10});
+          }
+        }
+        else $(`#${event.target.id}_content`).slideUp();
+        
+      },
+      
+    },
+  });
+  
+  // popupクラスを持つ要素にMagnific Popupを適用
+  $('.popup').magnificPopup({
+  	type:'image',
+  	closeOnContentClick: true,
+    zoom: {
+    	enabled: true,
+    	duration: 300,
+    	easing: 'ease-in-out',
+    },
+  });
+  
 });
-
-
-
-
 

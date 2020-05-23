@@ -63,3 +63,6 @@ gem 'jquery-rails'
 
 # font-asesome用
 gem 'font-awesome-rails'
+
+# Magnific popup用
+gem 'magnific-popup-rails', '~> 1.1.0'

@@ -1,5 +1,24 @@
+/*クリックして表示されるPortfolio一覧*/
 .portfolio_content{
   display: none;
   height: 600px;
-  background-color: #123456;
+  background-color: #ffe9b3;
+}
+
+
+/*クリックして表示されるPortfolio一覧の画像表示幅*/
+.portfolio .project{
+  padding: 0px 2px;
+}
+
+
+
+/*Blog*/
+#blog{
+  height: 600px;
+}
+
+/*Contact*/
+#contact{
+  height: 600px;
 }
