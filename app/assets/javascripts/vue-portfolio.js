@@ -130,9 +130,69 @@ $(function(){
   
   });
   
+  
+  // クリック時に展開するポートフォリオのコンポーネント：ローカル登録  
+  const portfolioContent = {
+    props: {
+      // images, small_imagesが配列であり，中身が空でないことを検証
+      images: {
+        type: Array,
+        required: true,
+      },
+      current_portofolio:{
+        type: String,
+        required: true,
+      }
+    },
+    template: `
+    
+    <ul class="row portfolio lightbox list-unstyled mb-0" id="grid">
+      <li
+        v-for="n in 4" 
+        v-bind:key="n"
+        class="col-lg-6 project"
+      >
+        <figure class="portfolio-item">
+          <a class="popup" v-bind:href="images[current_portofolio][n-1][0]">
+            <img class="img-fluid" v-bind:src="images[current_portofolio][n-1][1]" alt="">
+          </a>
+        </figure><!-- / portfolio-item -->
+      </li> 
+    </ul>
+
+    `,
+    
+  }
+  
   // ポートフォリオの詳細を表示する画面を表示
   new Vue({
     el: '#portfolio',
+    data: {
+      portfolio_images: [ 
+        [
+          [ 'images/izaillust/izaillust.png', 'images/izaillust/izaillust_small.png' ],
+          [ 'images/izaillust/izaillust_profile_page.png', 'images/izaillust/izaillust_profile_page_small.png' ],
+          [ 'images/izaillust/izaillust_ev_page.png', 'images/izaillust/izaillust_ev_page_small.png' ],
+          [ 'images/izaillust/izaillust_ev_result_page.png', 'images/izaillust/izaillust_ev_result_page_small.png' ],
+        ],
+        [
+          [ 'images/microposts/Microposts.png', 'images/microposts/Microposts.png' ],
+          [ 'images/microposts/Microposts_post.png', 'images/microposts/Microposts_post_small.png' ],
+          [ 'images/microposts/Microposts_signin.png', 'images/microposts/Microposts_signin_small.png' ],
+          [ 'images/microposts/Microposts_user_page.png', 'images/microposts/Microposts_user_page_small.png' ],
+        ],
+        [
+          [ 'images/myportfolio/Home.png', 'images/myportfolio/Home_small.png' ],
+          [ 'images/myportfolio/AboutMe.png', 'images/myportfolio/AboutMe_small.png' ],
+          [ 'images/myportfolio/Portfolio.png', 'images/myportfolio/Portfolio_small.png' ],
+          [ 'images/myportfolio/Contact.png', 'images/myportfolio/Contact_small.png' ],
+        ],
+      ],
+
+    },
+    components: {
+      'portfolio-content': portfolioContent,
+    },
     methods: {
       showPortforlio:function(event){
         event.preventDefault();
@@ -142,11 +202,11 @@ $(function(){
         if(!($(`#${event.target.id}_content`)).is(':visible')) {
           $(`.portfolio_contents div.portfolio_content`).slideUp();
           $(`#${event.target.id}_content`).slideDown();
-          console.log(this.w);
+          $("html,body").animate({scrollTop:$(`#${event.target.id}`).offset().top - 100});
           // 幅が狭い時用のレイアウトが適用されたときの記述
-          if(w <= 750)
+          if(w <= 767)
           {
-            console.log("a");
+
             $("html,body").animate({scrollTop:$(".portfolio_contents").offset().top - 10});
           }
         }
@@ -165,6 +225,25 @@ $(function(){
     	enabled: true,
     	duration: 300,
     	easing: 'ease-in-out',
+    },
+  });
+  
+  // "Contact Form を表示する"ボタンを押したときの挙動
+  new Vue({
+    el: '#contact',
+    methods: {
+      showContactForm:function(event){
+        
+        if(!($("#contact_form")).is(':visible')) {
+          $("#contact_form").slideDown();
+
+          $("html,body").animate({scrollTop:$("#contact_form").offset().top - 50});
+
+        }
+        else $("#contact_form").slideUp();
+        
+      },
+      
     },
   });
   
