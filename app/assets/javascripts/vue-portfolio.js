@@ -17,7 +17,7 @@ $(function(){
         else if(event.target.id === "sidebar-contact")this.current_active_element = "contact";
         else console.log('エラー：指定以外の要素へスクロールしようとしています');
 
-        $("html,body").animate({scrollTop:$(`#${this.current_active_element}`).offset().top});
+        
         $(`ul.sidebar-nav-inner`).children("li").removeClass("active");
         $(`#${event.target.id}`).parent("li").addClass("active");
       },
