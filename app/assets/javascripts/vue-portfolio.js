@@ -190,7 +190,7 @@ $(function(){
           [ 'images/microposts/Microposts_user_page.png', 'images/microposts/Microposts_user_page_small.png' ],
         ],
         [
-          [ 'images/myportfolio/Home.png', 'images/myportfolio/Home_small.png' ],
+          [ 'images/myportfolio/Home2.png', 'images/myportfolio/Home2_small.png' ],
           [ 'images/myportfolio/AboutMe.png', 'images/myportfolio/AboutMe_small.png' ],
           [ 'images/myportfolio/Portfolio.png', 'images/myportfolio/Portfolio_small.png' ],
           [ 'images/myportfolio/Contact.png', 'images/myportfolio/Contact_small.png' ],

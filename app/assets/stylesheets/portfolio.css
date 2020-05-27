@@ -1,3 +1,9 @@
+/*headerロゴ*/
+.img-logo-header{
+  width: auto;
+  max-height: 400px;
+}
+
 /*各portfolioのURLリンクのデザイン*/
 .link-color a{
   color: #4d483d;
