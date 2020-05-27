@@ -1,18 +1,11 @@
-
+/*各portfolioのURLリンクのデザイン*/
 .link-color a{
-  text-decoration:underline;
   color: #4d483d;
 }
 
 .link-color a:hover{
   color: #cc9814;
 }
-
-.link-color a:visited{
-  text-decoration:underline;
-  color: #4d483d;
-}
-
 
 
 /*skill set*/
