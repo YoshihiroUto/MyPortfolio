@@ -1,6 +1,6 @@
 class Category < ApplicationRecord
   
-  varidates :name, presence: true
+  validates :name, presence: true
   
-  has_many :articles
+  has_many :articles, dependent: :destroy
 end

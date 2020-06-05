@@ -1,0 +1,19 @@
+<h1>Sessions#new</h1>
+<h3>ログインページ</h3>
+
+
+<!-- Modelがないフォーム作成時はurl:"パス"を使用し，scope: :sessionにより，すべての -->
+<!-- フォームデータが，:sessionの中に入ることになる -->
+<%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+  <div>
+    <%= f.label :email, 'Email' %>
+    <%= f.email_field :email %>
+  </div>
+  <div>
+    <%= f.label :password, 'Password' %>
+    <%= f.password_field :password %>
+  </div>
+  
+  <%= f.submit 'Log in' %>
+  
+<% end %>

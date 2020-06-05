@@ -1,0 +1,27 @@
+<!-- articles/index.html.erb -->
+<h1>Articles#new</h1>
+<h3>記事作成ページ</h3>
+
+<%= form_with(model: @article, local: true) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+  
+  <div class="form-group">
+    <%= f.label :image, 'アイキャッチ画像' %>
+    <%= f.text_field :image %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :title, '記事タイトル' %>
+    <%= f.text_field :title %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :content, 'コンテンツ' %>
+    <%= f.text_field :content %>
+  </div>
+  
+  <%= link_to '記事一覧ページに戻る', articles_path, class: 'btn btn-secondary' %>
+  
+  <%= f.submit '新規記事作成', class: 'btn btn-primary' %>
+  
+<% end %>

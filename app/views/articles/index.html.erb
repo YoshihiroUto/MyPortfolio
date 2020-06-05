@@ -1,0 +1,13 @@
+<!-- articles/index.html.erb -->
+<h1>Articles#index</h1>
+<h3>記事一覧ページ</h3>
+
+<ul>
+  <% @articles.each do |article| %>
+    <li>アイキャッチ：<%= article.image %></li>
+    <li>タイトル：<%= article.title %></li>
+    <%= link_to '記事を削除', article, method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %>
+    <br>
+    <br>
+  <% end %>
+</ul>
