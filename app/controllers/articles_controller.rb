@@ -1,10 +1,11 @@
 class ArticlesController < ApplicationController
+  
   def index
     @articles = Article.all
   end
   
   def show
-    @articles = Article.find_by(params[:id])
+    @article = Article.find(params[:id])
   end
   
   def new
@@ -23,9 +24,17 @@ class ArticlesController < ApplicationController
   end
   
   def edit
+    @article = Article.find(params[:id])
   end
   
   def update
+    if @article.update(article_params)
+      flash[:success] = '記事を編集しました'
+      redirect_to article_path(@article)
+    else
+      flash.now[:danger] = '記事編集に失敗しました'
+      render :edit
+    end
   end
   
   def destroy
@@ -38,7 +47,6 @@ class ArticlesController < ApplicationController
   private
   
   def article_params
-    params.fetch(:article, {}).permit(:category_id)
     params.require(:article).permit(:image, :title, :content)
   end
   

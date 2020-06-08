@@ -2,12 +2,25 @@
 <h1>Articles#index</h1>
 <h3>記事一覧ページ</h3>
 
-<ul>
+<div class="container m-0">
   <% @articles.each do |article| %>
-    <li>アイキャッチ：<%= article.image %></li>
-    <li>タイトル：<%= article.title %></li>
-    <%= link_to '記事を削除', article, method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %>
-    <br>
-    <br>
+    <div class="row">
+      <div class="col-md-3">
+        <%= image_tag article.image_url(:thumb), class: "img-fluid", width: "40px", height: "25px" %>
+      </div>
+      <div class="col-md-9 mt-1">
+        <p>タイトル：<%= article.title %></p>
+        <ul>
+          <li><%= link_to 'この記事を見る', article_path(article) %></li>
+          <li><%= link_to '記事を削除', article, method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %></li>
+          <li><%= link_to '記事を編集する', edit_article_path(article) %></li>
+        </ul>
+        
+        
+        <br>
+        <br>
+      </div>
+    </div><!--/row-->
+
   <% end %>
-</ul>
+</div>

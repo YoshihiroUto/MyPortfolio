@@ -72,3 +72,13 @@ gem 'font-awesome-rails'
 # Magnific popup用
 gem 'magnific-popup-rails', '~> 1.1.0'
 
+# 画像アップロード用
+gem 'carrierwave'
+gem 'fog-aws'
+
+# サムネイル画像作成用
+gem 'mini_magick'
+
+# 環境変数用
+gem 'dotenv-rails'
+
