@@ -1,7 +1,18 @@
 class ArticlesController < ApplicationController
   
   def index
-    @articles = Article.all
+
+    if params[:current_category]
+      if params[:current_category] === "Unselected"
+        @articles = Article.where(category_id: nil) # カテゴリ未定義のものを選択
+      else
+        @articles = Article.where(category_id: params[:current_category]) # 既存カテゴリを選択
+      end
+    else
+      @articles = Article.all # すべてのカテゴリを取得
+    end
+    
+    @categories = Category.all
   end
   
   def show
@@ -10,10 +21,12 @@ class ArticlesController < ApplicationController
   
   def new
     @article = current_user.articles.build()
+    @categories = Category.all
   end
   
   def create
     @article = current_user.articles.build(article_params)
+    @categories = Category.all # エラーメッセージをきちんと表示させるために記述
     if @article.save
       flash[:success] = '記事を作成しました'
       redirect_to articles_url
@@ -25,9 +38,11 @@ class ArticlesController < ApplicationController
   
   def edit
     @article = Article.find(params[:id])
+    @categories = Category.all
   end
   
   def update
+    @article = Article.find(params[:id])
     if @article.update(article_params)
       flash[:success] = '記事を編集しました'
       redirect_to article_path(@article)
@@ -47,7 +62,7 @@ class ArticlesController < ApplicationController
   private
   
   def article_params
-    params.require(:article).permit(:image, :title, :content)
+    params.require(:article).permit(:category_id, :image, :title, :content)
   end
   
 end

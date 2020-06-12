@@ -82,3 +82,12 @@ gem 'mini_magick'
 # 環境変数用
 gem 'dotenv-rails'
 
+# マークダウン
+gem 'redcarpet', '~> 2.3.0'
+
+# シンタックスハイライト対応
+gem 'coderay'
+
+# Articleモデルにデフォルト値を導入
+gem 'default_value_for'
+

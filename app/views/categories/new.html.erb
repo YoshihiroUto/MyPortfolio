@@ -1,0 +1,17 @@
+<!-- categories/new.html.erb -->
+<h1>Categories#new</h1>
+<h3>新規カテゴリーページ</h3>
+
+<%= form_with(model: @category, local: true) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+
+  <div class="form-group">
+    <%= f.label :name, '新規カテゴリ名' %>
+    <%= f.text_field :name %>
+  </div>
+  
+  <%= link_to '記事一覧ページに戻る', articles_path, class: 'btn btn-secondary' %>
+  
+  <%= f.submit 'カテゴリ作成', class: 'btn btn-primary' %>
+  
+<% end %>

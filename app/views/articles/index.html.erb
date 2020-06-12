@@ -2,25 +2,53 @@
 <h1>Articles#index</h1>
 <h3>記事一覧ページ</h3>
 
-<div class="container m-0">
-  <% @articles.each do |article| %>
-    <div class="row">
-      <div class="col-md-3">
-        <%= image_tag article.image_url(:thumb), class: "img-fluid", width: "40px", height: "25px" %>
+<div class="container" style="max-width: 1500px;">
+  <div class="row">
+    <div class="col-md-3">
+      
+      <li class="border mb-1">
+        <%= link_to "All", articles_path %>
+      </li>
+      
+      <% @categories.each do |category| %>
+        <li class="border mb-1">
+          <%= link_to category.name, articles_path(current_category: category.id) %>
+          <%= link_to 'カテゴリ削除', category, class: "btn btn-outline-warning btn-sm", method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %>
+        </li>
+      <% end %>
+      
+      <li class="border mb-1 mr-1">
+        <%= link_to "未分類", articles_path(current_category: "Unselected") %>
+        <%#= link_to "カテゴリ無し", articles_path %>
+      </li>
+      
       </div>
-      <div class="col-md-9 mt-1">
-        <p>タイトル：<%= article.title %></p>
-        <ul>
-          <li><%= link_to 'この記事を見る', article_path(article) %></li>
-          <li><%= link_to '記事を削除', article, method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %></li>
-          <li><%= link_to '記事を編集する', edit_article_path(article) %></li>
-        </ul>
-        
-        
-        <br>
-        <br>
-      </div>
-    </div><!--/row-->
+    <div class="col-md-9">
+      <% @articles.each do |article| %>
+        <div class="row border mb-1">
+          <div class="col-md-2">
+            <%= image_tag article.image_url(:thumb), class: "img-fluid", width: "40px", height: "25px" %>
+          </div>
+          <div class="col-md-8 mt-1">
+            <p>タイトル：<%= article.title %></p>
+            <p>カテゴリ：
+              <% if article.category %>
+                <%= article.category.name %>
+              <% else %>
+                未分類
+              <% end %>
+            </p>
+            <ul>
+              <li><%= link_to 'この記事を見る', article_path(article) %></li>
+              <li><%= link_to '記事を削除', article, method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %></li>
+              <li><%= link_to '記事を編集する', edit_article_path(article) %></li>
+            </ul>
+            <br>
+            <br>
+          </div>
+        </div><!--/row-->
+      <% end %>
+    </div>
+  </div>
 
-  <% end %>
 </div>

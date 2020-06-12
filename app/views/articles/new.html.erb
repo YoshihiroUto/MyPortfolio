@@ -4,24 +4,39 @@
 
 <%= form_with(model: @article, local: true) do |f| %>
   <%= render 'layouts/error_messages', model: f.object %>
-  
   <div class="form-group">
-    <%= f.label :image, 'アイキャッチ画像' %>
-    <%= f.file_field :image %>
+    <div class="container">
+      <div id='editor'>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.label :category_id, "カテゴリ" %>
+              <%= f.collection_select(:category_id, @categories, :id, :name, :include_blank => "-未分類-") %>
+            </div>
+            
+            <div class="form-group">
+              <%= f.label :image, 'アイキャッチ画像' %>
+              <%= f.file_field :image %>
+            </div>
+            
+            <div class="form-group">
+              <%= f.label :title, '記事タイトル' %>
+              <%= f.text_field :title %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.text_area :content, rows: 5, class: 'form-control', id: 'article_content', "v-model" => "input", name: "article[content]" %>
+          </div>
+          <div class="col-md-6">
+            <div id="preview-field" class="content" v-html="convertMarkdown"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  
-  <div class="form-group">
-    <%= f.label :title, '記事タイトル' %>
-    <%= f.text_field :title %>
-  </div>
-  
-  <div class="form-group">
-    <%= f.label :content, 'コンテンツ' %>
-    <%= f.text_field :content %>
-  </div>
-  
   <%= link_to '記事一覧ページに戻る', articles_path, class: 'btn btn-secondary' %>
-  
   <%= f.submit '新規記事作成', class: 'btn btn-primary' %>
   
 <% end %>
