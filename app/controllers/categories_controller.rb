@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  before_action :admin_user?, only: [:new, :destroy]
+  
   def new
     @category = Category.new()
   end
@@ -28,6 +30,13 @@ class CategoriesController < ApplicationController
   
   def category_params
     params.require(:category).permit(:name)
+  end
+  
+  def admin_user?
+    if !logged_in?
+      flash[:danger] = '管理者のみ新規作成・編集・退会が行えます'
+      redirect_back(fallback_location: articles_url)
+    end
   end
   
 end

@@ -29,6 +29,9 @@ module MyPortfolio
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    
+    # 日本時間に変更
+    config.time_zone = 'Tokyo'
   
   end
 end

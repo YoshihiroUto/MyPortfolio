@@ -31,17 +31,25 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     
     
 
   </head>
 
   <!--body-->
-  <body>
-    <% url = request.fullpath %>
-    <% if url != root_path and logged_in? %>
-      <%= render 'layouts/navbar' %>
-    <% end %>
+  <body class='<%= controller.controller_name %>'>
+    <!--ナビゲーションバー-->
+    <header class="mb-4">
+      <% url = request.fullpath %>
+      <% if url != root_path and logged_in? %>
+        <%= render 'layouts/admin_navbar' %>
+      <% elsif url != root_path %>
+        <%= render 'layouts/navbar' %>
+      <% end %>
+    </header>
+    
+    
     <%= render 'layouts/flash_messages' %>
     
     <%= yield %>

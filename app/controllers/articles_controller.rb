@@ -1,15 +1,16 @@
 class ArticlesController < ApplicationController
+  before_action :admin_user?, only: [:new,:edit,:destroy]
   
   def index
 
     if params[:current_category]
       if params[:current_category] === "Unselected"
-        @articles = Article.where(category_id: nil) # カテゴリ未定義のものを選択
+        @articles = Article.where(category_id: nil).order(title: "asc") # カテゴリ未定義のものを選択
       else
-        @articles = Article.where(category_id: params[:current_category]) # 既存カテゴリを選択
+        @articles = Article.where(category_id: params[:current_category]).order(title: "asc") # 既存カテゴリを選択
       end
     else
-      @articles = Article.all # すべてのカテゴリを取得
+      @articles = Article.all.order(title: "asc") # すべてのカテゴリを取得
     end
     
     @categories = Category.all
@@ -63,6 +64,13 @@ class ArticlesController < ApplicationController
   
   def article_params
     params.require(:article).permit(:category_id, :image, :title, :content)
+  end
+  
+  def admin_user?
+    if !logged_in?
+      flash[:danger] = '管理者のみ編集や退会が行えます'
+      redirect_back(fallback_location: articles_url)
+    end
   end
   
 end

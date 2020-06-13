@@ -1,7 +1,4 @@
 <!-- articles/edit.html.erb -->
-<h1>Articles#edit</h1>
-<h3>記事編集ページ</h3>
-
 <%= form_with(model: @article, local: true) do |f| %>
   <%= render 'layouts/error_messages', model: f.object %>
   
@@ -28,7 +25,7 @@
         </div>
         <div class="row">
           <div class="col-md-6">
-            <%= f.text_area :content, rows: 5, class: 'form-control', id: 'article_content', "v-model" => "input", name: "article[content]" %>
+            <%= f.text_area :content, rows: 20, class: 'form-control', id: 'article_content', "v-model" => "input", name: "article[content]" %>
           </div>
           <div class="col-md-6">
             <div id="preview-field" class="content" v-html="convertMarkdown"></div>

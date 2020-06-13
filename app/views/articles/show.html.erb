@@ -1,11 +1,9 @@
 <!-- articles/show.html.erb -->
-<h1>Articles#show</h1>
-<h3>個別記事ページ</h3>
-
 <div class="container m-0">
   <div class="row mb-3">
     <div class="col-md-2">
       <%= image_tag @article.image_url(:thumb), class: "img-fluid", width: "40px", height: "25px" %>
+      <a href=<%= edit_article_path(@article) %>><i class="fa fa-edit"></i> 編集</a>
     </div>
     <div class="col-md-10">
       <h3><%= @article.title %></h3>

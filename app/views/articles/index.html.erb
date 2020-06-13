@@ -1,7 +1,4 @@
 <!-- articles/index.html.erb -->
-<h1>Articles#index</h1>
-<h3>記事一覧ページ</h3>
-
 <div class="container" style="max-width: 1500px;">
   <div class="row">
     <div class="col-md-3">
@@ -22,15 +19,17 @@
         <%#= link_to "カテゴリ無し", articles_path %>
       </li>
       
-      </div>
-    <div class="col-md-9">
+    </div>
+    
+    <div class="col-md-9 article-contents">
       <% @articles.each do |article| %>
         <div class="row border mb-1">
-          <div class="col-md-2">
-            <%= image_tag article.image_url(:thumb), class: "img-fluid", width: "40px", height: "25px" %>
+          <div class="col-md-2 eye-catch">
+            <%= link_to (image_tag article.image_url(:thumb)), article_path(article)  %>
           </div>
           <div class="col-md-8 mt-1">
             <p>タイトル：<%= article.title %></p>
+            <p>最終更新：<%= article.updated_at.to_s(:datetime_jp) %> 記事作成：<%= article.created_at.to_s(:datetime_jp) %></p>
             <p>カテゴリ：
               <% if article.category %>
                 <%= article.category.name %>
@@ -38,14 +37,15 @@
                 未分類
               <% end %>
             </p>
-            <ul>
-              <li><%= link_to 'この記事を見る', article_path(article) %></li>
-              <li><%= link_to '記事を削除', article, method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %></li>
-              <li><%= link_to '記事を編集する', edit_article_path(article) %></li>
-            </ul>
-            <br>
-            <br>
           </div>
+          
+          <div class="col-md-2 edit-icon">
+            <a href=<%= edit_article_path(article) %>><i class="fa fa-edit"></i> 編集</a>
+            <%= link_to article, method: :delete, class: "ml-1", data: { confirm: '本当に削除してよろしいですか?' } do %>
+              <i class="fa fa-trash"></i> 削除
+            <% end %>
+          </div>
+          
         </div><!--/row-->
       <% end %>
     </div>

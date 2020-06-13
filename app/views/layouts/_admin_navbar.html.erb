@@ -1,0 +1,27 @@
+<header class="mb-4">
+  
+  <nav class="navbar navbar-expand-lg navbar-light blog-navbar">
+    <%= link_to 'Blog', articles_path, class:"navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"><i class="fa fa-bars"></i></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <%= link_to '記事作成', new_article_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '新規カテゴリ作成', new_category_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'ログアウト', logout_path, method: :delete, class:"nav-link" %>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        管理者用ナビゲーションバー
+      </span>
+    </div>
+  </nav>  
+
+</header>
+
