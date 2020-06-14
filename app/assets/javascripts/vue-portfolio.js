@@ -265,7 +265,7 @@ $(document).on('turbolinks:load', function() {
     el: '#editor',// index.htmlでid="editor"となっている要素（エレメント）を指定
     data: {
       // index.htmlでv-model="input"が付与されている要素と双方向データバインディングされている。
-      input: document.querySelector("[v-model='input']").value, 
+      input: '', 
     },
     computed: {
       convertMarkdown: function() {
