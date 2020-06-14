@@ -1,26 +1,37 @@
 <!-- articles/index.html.erb -->
-<div class="container" style="max-width: 1500px;">
+<div class="container w-100">
   <div class="row">
-    <div class="col-md-3">
-      
-      <li class="border mb-1">
-        <%= link_to "All", articles_path %>
-      </li>
-      
-      <% @categories.each do |category| %>
-        <li class="border mb-1">
-          <%= link_to category.name, articles_path(current_category: category.id) %>
-          <%= link_to 'カテゴリ削除', category, class: "btn btn-outline-warning btn-sm", method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %>
-        </li>
-      <% end %>
-      
-      <li class="border mb-1 mr-1">
-        <%= link_to "未分類", articles_path(current_category: "Unselected") %>
-        <%#= link_to "カテゴリ無し", articles_path %>
-      </li>
-      
+    <!--カテゴリ選択-->
+    <div class="col-md-3 select-category">
+      <div class="profile-image mb-3">
+        <img src="images/komugiko.png" alt="プロフィール画像" class="img-fluid">
+        <h5 class="text-center">admin: komugiko</h5>
+        <p>プログラミングの勉強過程での備忘録として，ブログをつけていこうと思います．</p>
+      </div>
+      <ul class="list-group">
+
+          <%= link_to "All", articles_path, class: "list-group-item list-group-item-action" %>
+
+
+        <% @categories.each do |category| %>
+
+            <%= link_to category.name, articles_path(current_category: category.id), class: "list-group-item list-group-item-action" %>
+            <% if logged_in? %>
+              <%= link_to category, method: :delete, class: "ml-1 delete-icon", data: { confirm: '本当に削除してよろしいですか?' } do %>
+                <i class="fa fa-trash"></i>
+              <% end %>
+            <% end %>
+
+        <% end %>
+        
+
+          <%= link_to "未分類", articles_path(current_category: "Unselected"), class: "list-group-item list-group-item-action" %>
+          <%#= link_to "カテゴリ無し", articles_path %>
+
+      </ul>
     </div>
     
+    <!--記事一覧-->
     <div class="col-md-9 article-contents">
       <% @articles.each do |article| %>
         <div class="row border mb-1">
@@ -40,9 +51,11 @@
           </div>
           
           <div class="col-md-2 edit-icon">
-            <a href=<%= edit_article_path(article) %>><i class="fa fa-edit"></i> 編集</a>
-            <%= link_to article, method: :delete, class: "ml-1", data: { confirm: '本当に削除してよろしいですか?' } do %>
-              <i class="fa fa-trash"></i> 削除
+            <% if logged_in? %>
+              <a href=<%= edit_article_path(article) %>><i class="fa fa-edit"></i> 編集</a><br>
+              <%= link_to article, method: :delete, class: "ml-1", data: { confirm: '本当に削除してよろしいですか?' } do %>
+                <i class="fa fa-trash"></i> 削除
+              <% end %>
             <% end %>
           </div>
           

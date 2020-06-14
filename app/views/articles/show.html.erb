@@ -1,18 +1,21 @@
 <!-- articles/show.html.erb -->
-<div class="container m-0">
+<div class="container m-0 show-article">
   <div class="row mb-3">
     <div class="col-md-2">
       <%= image_tag @article.image_url(:thumb), class: "img-fluid", width: "40px", height: "25px" %>
-      <a href=<%= edit_article_path(@article) %>><i class="fa fa-edit"></i> 編集</a>
+      
     </div>
     <div class="col-md-10">
-      <h3><%= @article.title %></h3>
+      <h3 class="article-title"><%= @article.title %></h3>
+      <% if logged_in? %>
+        <a href=<%= edit_article_path(@article) %>><i class="fa fa-edit"></i> 記事を編集</a>
+      <% end %>
     </div>
   </div>
 
   <hr>
   
-  <div><%= markdown(@article.content).html_safe %></div>
+  <div class="markdown-field"><%= markdown(@article.content).html_safe %></div>
 
 </div>
 

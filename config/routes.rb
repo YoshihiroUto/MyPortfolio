@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'portfolios#index'
   
   # ログインページの表示・ログイン判別・ログアウト
-  get 'login', to: 'sessions#new'
+  get ENV['LOGIN_URL'], to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
   

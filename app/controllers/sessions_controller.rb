@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     flash.now[:success] = 'ログアウトしました'
-    render :new
+    redirect_to articles_url
   end
   
   private

@@ -40,7 +40,7 @@
   <!--body-->
   <body class='<%= controller.controller_name %>'>
     <!--ナビゲーションバー-->
-    <header class="mb-4">
+    <header id="blog-site">
       <% url = request.fullpath %>
       <% if url != root_path and logged_in? %>
         <%= render 'layouts/admin_navbar' %>

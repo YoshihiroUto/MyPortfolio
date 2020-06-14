@@ -255,22 +255,26 @@ $(function(){
     },
   });
   
+});
+
+
+$(document).on('turbolinks:load', function() {
+  
   // リアルタイムプレビュー
   new Vue({
-    el: '#editor',// index.htmlでid="app"となっている要素（エレメント）を指定
+    el: '#editor',// index.htmlでid="editor"となっている要素（エレメント）を指定
     data: {
-      input: ''// index.htmlでv-model="input"が付与されている要素と双方向データバインディングされている。
+      // index.htmlでv-model="input"が付与されている要素と双方向データバインディングされている。
+      input: document.querySelector("[v-model='input']").value, 
     },
     computed: {
       convertMarkdown: function() {
-        // index.htmlでv-html="convertMarkdown"が付与されている要素（エレメント）とバイディングされている。
+        // index.htmlでv-html="convertMarkdown"が付与されている要素（エレメント）とバインディングされている。
         // 入力されたデータをHTMLに変換して表示させる。
         return marked(this.input);
       }
     }
   });
-  
-
   
 });
 

@@ -2,7 +2,7 @@
 <%= form_with(model: @article, local: true) do |f| %>
   <%= render 'layouts/error_messages', model: f.object %>
   <div class="form-group">
-    <div class="container">
+    <div class="container w-100">
       <div id='editor'>
         <div class="row">
           <div class="col-md-6">
@@ -27,7 +27,7 @@
             <%= f.text_area :content, rows: 20, class: 'form-control', id: 'article_content', "v-model" => "input", name: "article[content]" %>
           </div>
           <div class="col-md-6">
-            <div id="preview-field" class="content" v-html="convertMarkdown"></div>
+            <div id="preview-field" class="content markdown-field" v-html="convertMarkdown"></div>
           </div>
         </div>
       </div>
