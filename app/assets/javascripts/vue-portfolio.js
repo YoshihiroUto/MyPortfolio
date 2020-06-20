@@ -10,8 +10,6 @@ $(function(){
       changeActive:function(event){
         event.preventDefault();
         
-        console.log(event.target.id);
-        
         if(event.target.id === "sidebar-home")this.current_active_element = "home";
         else if(event.target.id === "sidebar-about-me")this.current_active_element = "about";
         else if(event.target.id === "sidebar-portfolio")this.current_active_element = "portfolio";
@@ -258,23 +256,5 @@ $(function(){
 });
 
 
-$(document).on('turbolinks:load', function() {
-  
-  // リアルタイムプレビュー
-  new Vue({
-    el: '#editor',// index.htmlでid="editor"となっている要素（エレメント）を指定
-    data: {
-      // index.htmlでv-model="input"が付与されている要素と双方向データバインディングされている。
-      input: document.querySelector("[v-model='input']").value, 
-    },
-    computed: {
-      convertMarkdown: function() {
-        // index.htmlでv-html="convertMarkdown"が付与されている要素（エレメント）とバインディングされている。
-        // 入力されたデータをHTMLに変換して表示させる。
-        return marked(this.input);
-      }
-    }
-  });
-  
-});
+
 

@@ -1,6 +1,5 @@
 module ApplicationHelper
   require "redcarpet"
-  require "coderay"
 
   def markdown(text)
       options = {

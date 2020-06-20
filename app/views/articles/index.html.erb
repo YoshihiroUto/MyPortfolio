@@ -4,13 +4,14 @@
     <!--カテゴリ選択-->
     <div class="col-md-3 select-category">
       <div class="profile-image mb-3">
-        <img src="images/komugiko.png" alt="プロフィール画像" class="img-fluid">
+        <!--<img src="/komugiko.png" alt="プロフィール画像" class="img-fluid">-->
+        <%= image_tag('komugiko.png')%>
         <h5 class="text-center">admin: komugiko</h5>
         <p>プログラミングの勉強過程での備忘録として，ブログをつけていこうと思います．</p>
       </div>
       <ul class="list-group">
 
-          <%= link_to "All", articles_path, class: "list-group-item list-group-item-action" %>
+        <%= link_to "All", articles_path, class: "list-group-item list-group-item-action" %>
 
 
         <% @categories.each do |category| %>

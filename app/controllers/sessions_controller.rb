@@ -13,11 +13,11 @@ class SessionsController < ApplicationController
     
     # ログイン判定後処理
     if login(email, password)
-      flash.now[:success] = 'ログインに成功しました'
+      flash[:success] = 'ログインに成功しました'
       redirect_to articles_url
     else
-      flash.now[:danger] = 'ログインに失敗しました'
-      render :new
+      flash[:danger] = 'ログインに失敗しました'
+      redirect_to articles_url
     end
     
     

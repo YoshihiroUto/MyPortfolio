@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   resources :categories, :only => [:new, :create, :destroy]
   
   # ユーザー関係
-  get ENV['MAKE_USER_URL'], to:'users#new'
-  post 'users', to:'users#create'
+  # なし
   
 end

@@ -1,75 +1,84 @@
-:not(portfolios) #blog-site {
+body:not(.portfolios) #blog-site {
   margin: 0 0 5px 0;
 }
 
-:not(portfolios) html, body, h1, h2, h3, h4, h5, h6, a, p, ul, ol, li {
+body:not(portfolios) html, body, h1, h2, h3, h4, h5, h6, a, p, ul, ol, li {
   font-family: "Josefin Sans", sans-serif !important;
   -webkit-font-smoothing: antialiased;
 }
 
-:not(portfolios) h1, h2, h3, h4, h5, h6 {
+body:not(portfolios) h1, h2, h3, h4, h5, h6 {
   font-family: "Montserrat", sans-serif !important;
   -webkit-font-smoothing: antialiased;
 }
 
 /* 画面幅が一定未満になったときに出現するハンバーガーボタンのスタイル */
-:not(portfolios) .navbar-toggler i{
+body:not(portfolios) .navbar-toggler i{
   font-size: 30px;
 }
 
 /* 併設ブログのアイキャッチ画像に対するスタイル */
-:not(portfolios) .eye-catch{
+body:not(portfolios) .eye-catch{
   margin: auto 0;
 }
 
-:not(portfolios) .eye-catch a img{
+body:not(portfolios) .eye-catch a img{
   transform: scale(0.9);
   transition: transform 0.1s ease-in;
 }
 
-:not(portfolios) .eye-catch a:hover img{
+body:not(portfolios) .eye-catch a:hover img{
   transform: scale(1.0);
 }
 
 /* 編集や削除ボタンに対するスタイル */
-:not(portfolios) .edit-icon {
+body:not(portfolios) .edit-icon {
     margin: auto 0 0 0;
 }
 
 
-:not(portfolios) .article-contents i{
+body:not(portfolios) .article-contents i{
   font-size: 20px;
 }
 
 /* カテゴリ内のaタグに関するスタイル */
-:not(portfolios) .select-category li{
+body:not(portfolios) .select-category li{
   margin: 0 0 4px 0;
   text-align: center;
 }
-:not(portfolios) .select-category li a{
+body:not(portfolios) .select-category li a{
   color: #778899;
 }
-:not(portfolios) .select-category li a:hover{
+body:not(portfolios) .select-category li a:hover{
   color: #e6f3ff;
   background-color: #778899;
 }
-:not(portfolios) .select-category li a i{
+body:not(portfolios) .select-category li a i{
   font-size: 20px;
   color: #00bfff;
 }
 
 
 /*詳細記事ページのスタイル*/
-:not(portfolios) .show-article .article-title{
+body:not(portfolios) .show-article .article-title{
   margin: auto 0;
 }
 
 /*マークダウンエリアに関するスタイル指定*/
-:not(portfolios) #preview-field {
+body:not(portfolios) #preview-field {
   padding: 3px;
   height: 500px;
   overflow: scroll;
 }
-:not(portfolios) .markdown-field pre{
-  background-color: #afeeee;
+body:not(portfolios) .markdown-field pre{
+  position: relative;
+  padding: 0.5em 1em;
+  color: white;
+  background-color: #234d4d;
+  border : double 4px white ;
+}
+body:not(portfolios) .markdown-field p code{
+  padding: 0.3em 1em;
+  background-color: #b8e6da;
+  color: #459999;
 }
