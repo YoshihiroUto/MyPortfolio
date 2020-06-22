@@ -267,9 +267,19 @@
         </div>
       </div><!-- / cta -->
       <div class="text-center">
-        <h4 class="text-center">現在開発中...</h4>
-        <p>Ruby on Railsを活用して，ブログ併設を目指し，コーディングしています．</p>
-        <%= link_to 'ブログサイト', articles_path %>
+
+        
+        <div class="row">
+          <div class="col-md-6">
+            <a href="<%= articles_path %>" target="_blank"><%= image_tag 'blogsite.png' %></a>
+          </div>
+          <div class="col-md-6">
+            <h4 class="text-center">現在も開発中のブログサイトです</h4>
+            <p>備忘録として，勉強してきたことをメモしています．</p>
+          </div>
+        </div>
+        
+
       </div>
 
     </section>

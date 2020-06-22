@@ -38,12 +38,16 @@
 }
 
 
-
-
 /*Blog*/
-#blog{
-  height: 300px;
+#blog a img{
+  transform: scale(0.9);
+  transition: transform 0.1s ease-in;
 }
+
+#blog a:hover img{
+  transform: scale(0.95);
+}
+
 
 /*Contact表示ボタン*/
 #edit {
@@ -70,4 +74,5 @@
   height: auto;
   background-color: #ffe9b3;
 }
+
 
