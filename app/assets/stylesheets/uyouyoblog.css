@@ -1,3 +1,4 @@
+/*blogマークダウン関係*/
 body:not(.portfolios) #blog-site {
   margin: 0 0 5px 0;
 }
@@ -10,6 +11,14 @@ body:not(portfolios) html, body, h1, h2, h3, h4, h5, h6, a, p, ul, ol, li {
 body:not(portfolios) h1, h2, h3, h4, h5, h6 {
   font-family: "Montserrat", sans-serif !important;
   -webkit-font-smoothing: antialiased;
+}
+
+body:not(portfolios) blockquote{
+  padding: 0.5em 1em;
+  margin: 1em 0;
+  background: #f4f4f4;
+  border-left: solid 6px #5bb7ae;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
 }
 
 /* 画面幅が一定未満になったときに出現するハンバーガーボタンのスタイル */
@@ -81,4 +90,9 @@ body:not(portfolios) .markdown-field p code{
   padding: 0.3em 1em;
   background-color: #b8e6da;
   color: #459999;
+}
+
+/*ページネーション*/
+body:not(portfolios) .pagination{
+  margin: auto;
 }

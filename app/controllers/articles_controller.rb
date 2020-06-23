@@ -6,12 +6,12 @@ class ArticlesController < ApplicationController
   def index
     if params[:current_category]
       if params[:current_category] === "Unselected"
-        @articles = Article.where(category_id: nil).order(title: "asc") # カテゴリ未定義のものを選択
+        @articles = Article.where(category_id: nil).order(title: "asc").page(params[:page]).per(7) # カテゴリ未定義のものを選択
       else
-        @articles = Article.where(category_id: params[:current_category]).order(title: "asc") # 既存カテゴリを選択
+        @articles = Article.where(category_id: params[:current_category]).order(title: "asc").page(params[:page]).per(7) # 既存カテゴリを選択
       end
     else
-      @articles = Article.all.order(title: "asc") # すべてのカテゴリを取得
+      @articles = Article.all.order(title: "asc").page(params[:page]).per(7) # すべてのカテゴリを取得
     end
   end
   
@@ -65,7 +65,7 @@ class ArticlesController < ApplicationController
   end
   
   def category_all
-    @categories = Category.all
+    @categories = Category.all.order(name: "asc")
   end
   
   def admin_user?
