@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+自信のポートフォリオサイトです．
 
-Things you may want to cover:
+## 使用スキル
+- Ruby
+- Ruby on Rails
+- HTML
+- CSS
+- JavaScript
+- jQuery
+- Vue.js
 
-* Ruby version
+## 主な仕様
+- SPA(Single Page Application)をVue.jsやjQueryを用いて実装
+- ブログサイトの併設
+  - マークダウンエディタの実装
+  - マークダウンエディタのリアルタイムプレビュー実装
+  - ブログ記事カテゴリ分類機能
+- ユーザログイン機能(管理者のみ)
+- Amazon S3とcarrierwaveを用いた画像アップロード機能
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
