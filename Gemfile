@@ -83,7 +83,7 @@ gem 'mini_magick'
 gem 'dotenv-rails'
 
 # マークダウン
-gem 'redcarpet', '~> 2.3.0'
+gem 'redcarpet', '~> 3.5.1'
 
 # シンタックスハイライト対応
 gem 'coderay'
